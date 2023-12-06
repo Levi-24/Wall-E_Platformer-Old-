@@ -3243,7 +3243,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1545.03, y: 718.75, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3321,6 +3321,10 @@ PrefabInstance:
     - target: {fileID: 791539032300103662, guid: 04d911afa090b3b4dbdfff1d4d6894d2, type: 3}
       propertyPath: m_Name
       value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227274383271215610, guid: 04d911afa090b3b4dbdfff1d4d6894d2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7338365409824463487, guid: 04d911afa090b3b4dbdfff1d4d6894d2, type: 3}
       propertyPath: m_LocalPosition.x
