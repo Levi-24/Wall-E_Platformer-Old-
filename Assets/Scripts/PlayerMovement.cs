@@ -14,8 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMove;
     public float speed = 5;
     public Animator animator;
+    
+    public float KBForce;
+    public float KBCount;
+    public float KBTotalTime;
 
-
+    public bool KnockFromRight;
 
     void Start()
     {
@@ -51,22 +55,40 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-       
-
-        if (moveLeft)
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if (KBCount<=0) 
         {
-            horizontalMove = -speed;
-            sr.flipX = true;
-        }
-        else if (moveRight)
-        {
-            horizontalMove = speed;
-            sr.flipX = false;
+            if (moveLeft)
+            {
+                horizontalMove = -speed;
+                sr.flipX = true;
+            }
+            else if (moveRight)
+            {
+                horizontalMove = speed;
+                sr.flipX = false;
+            }
+            else
+            {
+                horizontalMove = 0;
+            }
         }
         else
         {
-            horizontalMove = 0;
+            if (KnockFromRight == true)
+            { 
+                rb.velocity = new Vector2(-KBForce,KBForce);
+            }
+            if (KnockFromRight == false)
+            {
+                rb.velocity = new Vector2(KBForce, KBForce);
+            }
+
+            KBCount -= Time.deltaTime;
+
         }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -84,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
         }
     }
-
+    
     public void Jump()
     {
         if (grounded)
