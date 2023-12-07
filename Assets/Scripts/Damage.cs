@@ -20,7 +20,7 @@ public class Damage : MonoBehaviour
 
     private void Update()
     {
-        if (scoreText.text == "Coins: 10")
+        if (scoreText.text == "Coins: 1")
         {
             GameManager.GameOver();
         }

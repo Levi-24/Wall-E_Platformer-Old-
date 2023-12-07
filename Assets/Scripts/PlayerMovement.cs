@@ -14,12 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMove;
     public float speed = 5;
     public Animator animator;
-    
-    public float KBForce;
-    public float KBCount;
-    public float KBTotalTime;
-
-    public bool KnockFromRight;
+   
 
     void Start()
     {
@@ -56,8 +51,6 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        if (KBCount<=0) 
-        {
             if (moveLeft)
             {
                 horizontalMove = -speed;
@@ -72,23 +65,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 horizontalMove = 0;
             }
-        }
-        else
-        {
-            if (KnockFromRight == true)
-            { 
-                rb.velocity = new Vector2(-KBForce,KBForce);
-            }
-            if (KnockFromRight == false)
-            {
-                rb.velocity = new Vector2(KBForce, KBForce);
-            }
-
-            KBCount -= Time.deltaTime;
-
-        }
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
