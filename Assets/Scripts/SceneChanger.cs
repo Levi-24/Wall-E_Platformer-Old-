@@ -19,4 +19,17 @@ public class SceneChanger : MonoBehaviour
 
         SceneManager.LoadScene(sceneName);
     }
+
+    public void RetryScene()
+    {
+        StartCoroutine(ReloadLevel().GetEnumerator());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+    }
+
+    IEnumerable ReloadLevel()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1.5f);
+    }
 }
