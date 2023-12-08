@@ -14,7 +14,7 @@ public class ItemCollector : MonoBehaviour
         {
             Destroy(collision.gameObject);
             _score++;
-            _scoreText.text = "Coins: " + _score;
+            _scoreText.text = "Trash: " + _score;
         }
     }
 }
