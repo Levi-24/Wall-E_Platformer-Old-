@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ItemCollector : MonoBehaviour
+public class ItemCollector1 : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _scoreText;
     private int _score = 0;
@@ -14,7 +14,7 @@ public class ItemCollector : MonoBehaviour
         {
             Destroy(collision.gameObject);
             _score++;
-            _scoreText.text = "Trash: " + _score;
+            _scoreText.text = "Trash: " + _score + "/13";
         }
     }
 }

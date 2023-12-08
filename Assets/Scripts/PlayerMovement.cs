@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMove;
     public float speed = 5;
     public Animator animator;
-   
 
     void Start()
     {
@@ -45,26 +44,25 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MovePlayer();
-        
     }
 
     private void MovePlayer()
     {
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-            if (moveLeft)
-            {
-                horizontalMove = -speed;
-                sr.flipX = true;
-            }
-            else if (moveRight)
-            {
-                horizontalMove = speed;
-                sr.flipX = false;
-            }
-            else
-            {
-                horizontalMove = 0;
-            }
+        if (moveLeft)
+        {
+            horizontalMove = -speed;
+            sr.flipX = true;
+        }
+        else if (moveRight)
+        {
+            horizontalMove = speed;
+            sr.flipX = false;
+        }
+        else
+        {
+            horizontalMove = 0;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -82,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
         }
     }
-    
+
     public void Jump()
     {
         if (grounded)
