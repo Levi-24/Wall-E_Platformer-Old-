@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject GameOverUI;
+    public GameObject WinUI;
 
     public void Menu()
     {
@@ -15,6 +16,16 @@ public class GameManagerScript : MonoBehaviour
     public void GameOver()
     {
         GameOverUI.SetActive(true);
+    }
+
+    public void Win()
+    {
+        WinUI.SetActive(true);
+    }
+
+    public void Next()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Restart()

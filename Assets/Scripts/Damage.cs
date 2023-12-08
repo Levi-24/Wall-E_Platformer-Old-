@@ -22,7 +22,7 @@ public class Damage : MonoBehaviour
     {
         if (scoreText.text == "Coins: 1")
         {
-            GameManager.GameOver();
+            GameManager.Win();
         }
     }
 }
