@@ -293,7 +293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.9100037, y: -3.710022}
+  m_AnchoredPosition: {x: -2.9100342, y: -3.710022}
   m_SizeDelta: {x: 134.16, y: 81.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &47418161
@@ -1716,7 +1716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Trash: 0  /  13'
+  m_text: 'Trash: 0/13'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b99ba98684346074ca5680b19d8e344a, type: 2}
   m_sharedMaterial: {fileID: -6873996039556313131, guid: b99ba98684346074ca5680b19d8e344a, type: 2}
@@ -7403,8 +7403,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 202.46997, y: -46}
-  m_SizeDelta: {x: 364.95, y: 50}
+  m_AnchoredPosition: {x: 310.43, y: -46}
+  m_SizeDelta: {x: 580.86, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1912741596
 CanvasRenderer:
@@ -7843,6 +7843,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 409321770651021607, guid: 0cd5910e7a6e97d45bcc0b03ce7f76b5, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3eeb372ba259c134383a1b485303dfdc, type: 3}
+    - target: {fileID: 409321770651021607, guid: 0cd5910e7a6e97d45bcc0b03ce7f76b5, type: 3}
+      propertyPath: _scoreText
+      value: 
+      objectReference: {fileID: 818544237}
     - target: {fileID: 4356268459105789626, guid: 0cd5910e7a6e97d45bcc0b03ce7f76b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1541.5

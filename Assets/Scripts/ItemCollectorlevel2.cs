@@ -6,6 +6,7 @@ using UnityEngine;
 public class ItemCollector2 : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _scoreText;
+    public AudioClip sound;
     private int _score = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,6 +16,7 @@ public class ItemCollector2 : MonoBehaviour
             Destroy(collision.gameObject);
             _score++;
             _scoreText.text = "Trash: " + _score+"/15";
+            AudioSource.PlayClipAtPoint(sound, transform.position, 1);
         }
     }
 }
