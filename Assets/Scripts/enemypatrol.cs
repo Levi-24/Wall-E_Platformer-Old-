@@ -22,7 +22,7 @@
             transform.Translate(Vector2.right * speed * Time.deltaTime * dir);
             if (transform.position.x < startingx || transform.position.x > startingx + range)
                 {
-                    transform.localScale = new Vector3((1)sclex,transform.localScale.y, transform.localScale.z);
+                    transform.localScale = new Vector3((1) * sclex,transform.localScale.y, transform.localScale.z);
                     dir *= -1;
                 
                 
