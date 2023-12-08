@@ -23,6 +23,7 @@ public class Damage : MonoBehaviour
         if (scoreText.text == "Coins: 13")
         {
             GameManager.Win();
+            player.SetActive(false);
         }
     }
 }
