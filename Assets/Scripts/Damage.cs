@@ -20,7 +20,7 @@ public class Damage : MonoBehaviour
 
     private void Update()
     {
-        if (scoreText.text == "Coins: 13")
+        if (scoreText.text == "Trash: 13")
         {
             GameManager.Win();
             player.SetActive(false);
