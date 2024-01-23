@@ -3017,7 +3017,7 @@ GameObject:
   - component: {fileID: 1240201000}
   - component: {fileID: 1240200999}
   - component: {fileID: 1240201001}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Map
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5961,6 +5961,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8530687062423598943, guid: 623600d5619cb2440aeab1e52c93670e, type: 3}
   m_PrefabInstance: {fileID: 93404418}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1277567769 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8522317876938654406, guid: 0cd5910e7a6e97d45bcc0b03ce7f76b5, type: 3}
+  m_PrefabInstance: {fileID: 8938231043066145957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1307243109
 GameObject:
   m_ObjectHideFlags: 0
@@ -6103,6 +6108,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2878288256578069951, guid: ab682c9c161adae41922817a8c5464b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5236982845190332127, guid: ab682c9c161adae41922817a8c5464b9, type: 3}
       propertyPath: m_Name
       value: SceneControl
@@ -7851,6 +7860,10 @@ PrefabInstance:
       propertyPath: _scoreText
       value: 
       objectReference: {fileID: 818544237}
+    - target: {fileID: 3082892820655293552, guid: 0cd5910e7a6e97d45bcc0b03ce7f76b5, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1277567769}
     - target: {fileID: 4356268459105789626, guid: 0cd5910e7a6e97d45bcc0b03ce7f76b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1541.5
