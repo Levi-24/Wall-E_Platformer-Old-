@@ -4,57 +4,93 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float maxSpeed = 7;
-    [SerializeField] private float jumpHeight = 150;
+    private Rigidbody2D rb;
+    private SpriteRenderer sr;
 
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    private bool moveLeft = false;
+    private bool moveRight = false;
+    public float jumpForce = 5;
+    bool grounded;
+    private float horizontalMove;
+    public float speed = 5;
+    public Animator animator;
 
-    private Animator animator;
-    private Rigidbody2D rigidbody2d;
-    private bool isFacingRight;
-    private bool isGrounded;
-
-    private void Start()
+    void Start()
     {
-        animator = GetComponent<Animator>();
-        rigidbody2d = GetComponent<Rigidbody2D>();
-        isFacingRight = true;
-        isGrounded = false;
+        sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    public void PointerDownLeft()
     {
-        if (isGrounded && Input.GetAxis("Jump") > 0)
+        moveLeft = true;
+    }
+
+    public void PointerUpLeft()
+    {
+        moveLeft = false;
+    }
+
+    public void PointerDownRight()
+    {
+        moveRight = true;
+    }
+
+    public void PointerUpRight()
+    {
+        moveRight = false;
+    }
+
+    void Update()
+    {
+        MovePlayer();
+    }
+
+    private void MovePlayer()
+    {
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if (moveLeft)
         {
-            isGrounded = false;
-            animator.SetBool("IsGrounded", false);
-            rigidbody2d.AddForce(new Vector2(0, jumpHeight));
+            horizontalMove = -speed;
+            sr.flipX = true;
+        }
+        else if (moveRight)
+        {
+            horizontalMove = speed;
+            sr.flipX = false;
+        }
+        else
+        {
+            horizontalMove = 0;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            grounded = false;
+        }
+    }
+
+    public void Jump()
+    {
+        if (grounded)
+        {
+            rb.velocity = Vector2.up * jumpForce;
         }
     }
 
     private void FixedUpdate()
     {
-        float move = Input.GetAxis("Horizontal");
-        animator.SetFloat("Speed", Mathf.Abs(move));
-        rigidbody2d.velocity = new(
-            move * maxSpeed,
-            rigidbody2d.velocity.y
-        );
-
-        if ((move > 0 && !isFacingRight) || (move < 0 && isFacingRight)) Flip();
-
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, .15f, groundLayer);
-        animator.SetBool("IsGrounded", isGrounded);
-        animator.SetFloat("VerticalSpeed", rigidbody2d.velocity.y);
-    }
-
-    private void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        transform.localScale = new(
-            transform.localScale.x * -1,
-            transform.localScale.y,
-            transform.localScale.z);
+        rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
     }
 }
